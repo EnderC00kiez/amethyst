@@ -1,4 +1,4 @@
-echo "Amethyst will not check for privileges and may ask for your password."
+echo "Amethyst will now check for privileges and may ask for your password."
 sudo echo "===== Setup ====="
 # check if Python is installed
 if ! [ -x "$(command -v python3)" ]; then
