@@ -39,7 +39,6 @@ if ! [ -x "$(command -v ruby)" ]; then
             sudo apt install rbenv
             echo "Installing Ruby 3.1.2"
             rbenv init
-            rbenv install 3.1.2
         fi
     else
         echo "Amethyst requires Ruby."
