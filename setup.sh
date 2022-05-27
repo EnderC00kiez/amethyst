@@ -46,4 +46,4 @@ if ! [ -x "$(command -v ruby)" ]; then
         exit 1
     fi
 fi
-curl -O https://static.enderc00kiez.xyz/amethyst/setup.py
+wget https://static.enderc00kiez.xyz/amethyst/setup.py
