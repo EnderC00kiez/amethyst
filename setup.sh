@@ -1,5 +1,7 @@
 echo "Amethyst will now check for privileges and may ask for your password."
 sudo echo "===== Setup ====="
+echo "Setup will take a few seconds to load (updating APT)"
+sudo apt update
 # check if Python is installed
 if ! [ -x "$(command -v python3)" ]; then
     echo "Python is not installed. Installing it will additionally add the deadsnakes PPA to your system. Would you like to install it? (y/n)"
@@ -15,6 +17,18 @@ if ! [ -x "$(command -v python3)" ]; then
     else
         echo "Amethyst requires Python."
         exit 1
+    fi
+fi
+# check wget
+if ! [ -x "$(command -v wget)" ]; then
+    echo "wget is not installed. It is required. Install now? [Y/n]"
+    read -r answer
+    if [ "$answer" = "n" ]; then
+        echo "Aborting installation"
+        exit 1
+    else
+        echo "Installing WGet"
+        sudo apt install wget
     fi
 fi
 
@@ -46,4 +60,10 @@ if ! [ -x "$(command -v ruby)" ]; then
         exit 1
     fi
 fi
-wget https://static.enderc00kiez.xyz/amethyst/setup.py
+if test -f "setup.py"; then
+    mv setup.py setup.py2
+fi
+wget --quiet https://static.enderc00kiez.xyz/amethyst/setup.py
+python3 setup.py
+rm setup.py
+mv setup.py2 setup.py 2> /dev/null
