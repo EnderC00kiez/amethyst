@@ -63,7 +63,7 @@ fi
 if test -f "setup.py"; then
     mv setup.py setup.py2
 fi
-wget --quiet https://static.enderc00kiez.xyz/amethyst/setup.py
+wget --quiet https://raw.githubusercontent.com/EnderC00kiez/amethyst/beta/setup.py
 python3 setup.py
 rm setup.py
 mv setup.py2 setup.py 2> /dev/null
