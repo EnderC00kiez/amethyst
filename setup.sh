@@ -27,7 +27,7 @@ if ! [ -x "$(command -v wget)" ]; then
         echo "Aborting installation"
         exit 1
     else
-        echo "Installing WGet"
+        echo "Installing wget"
         sudo apt install wget
     fi
 fi
